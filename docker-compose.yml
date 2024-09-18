@@ -1,0 +1,21 @@
+version: '3'
+
+services:
+  pgsql:
+    image: postgres:11-alpine
+    ports:
+      - '5434:5432'
+    expose:
+      - '5432'
+    container_name: 'sistemalogin_pgsql'
+    restart: always
+    environment:
+      POSTGRES_USER: pguser
+      POSTGRES_PASSWORD: pgpassword
+      POSTGRES_DB: sistemalogin
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - '8081:8080'
