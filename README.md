@@ -1,73 +1,21 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
-</p>
+## Expires: Define a data e a hora de expiração do cookie. Se esse parâmetro não for definido, será configurado por default como um cookie de sessão, expirando quando o navegador for fechado.
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+## Max-Age: Similar ao Expires, ele também define quando um cookie vai expirar, mas em segundos.
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+## Domain: Define para qual host o cookie será enviado pelo navegador. Se esse parâmetro não for definido, o cookie será enviado somente para o host da URL atual, será enviado nas requisições para example.com e todos os seus sub-domínios.
 
-## Description
+## Path: Indica qual o caminho deve existir na URL para que o cookie seja enviado pelo navegador. Se o valor for /docs, o cookie será enviado para URLs como /docs, /docs/, /docs/web, mas não será enviado para URLs como /, /documentos, /pt-br/docs.
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+## Secure: Se esse parâmetro for definido, o cookie só será enviado em requisições HTTPS.
 
-## Installation
+## HttpOnly: Proíbe o acesso ao cookie em questão através do JavaScript com document.cookie. Eles são enviados só para o servidor, ex: cookies que persistem sessões de servidor não precisam estar disponíveis para o JavaScript, e portanto a diretiva HttpOnly deve ser configurada.
 
-```bash
-$ npm install
-```
+## SameSite: Com os possíveis valores sendo Strict, Lax e None, controla se o cookie pode ser enviado em requisições feitas a partir de outros sites para o domínio do cookie.
 
-## Running the app
+## Strict: Apenas cookies para o endereço da URL que está sendo acessada são enviados. Faz com que a requisição inicial para uma aplicação não contenha os cookies com este parâmetro, já que estão vindo de outro domínio.
 
-```bash
-# development
-$ npm run start
+## Lax (opção padrão): Semelhante ao Strict, mas permite o envio dos cookies na requisição inicial. Isso permite que, por exemplo, o usuário mantenha a sessão ativa ao chegar no sistema através de um link externo.
 
-# watch mode
-$ npm run start:dev
+## None: Significa que os cookies serão enviados mesmo se a requisição estiver vindo de outro endereço. Para usar este método, as versões mais recentes dos navegadores exigem que o parâmetro secure seja definido.
 
-# production mode
-$ npm run start:prod
-```
-
-## Test
-
-```bash
-# unit tests
-$ npm run test
-
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
-```
-
-## Support
-
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
-
-## Stay in touch
-
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
-
-## License
-
-Nest is [MIT licensed](LICENSE).
+## SessionStorage: É similar ao localStorage, a única diferença é que enquanto os dados armazenados no localStorage não expiram, os dados na sessionStorage têm seus dados limpos ao expirar a sessão da página. A sessão da página dura enquanto o navegador está aberto e se mantém no recarregamento da página. Funciona na política de mesma origem, portanto os dados armazenados só estarão disponíveis na mesma origem. Por fim, os dados não serão enviados de volta ao servidor para cada solicitação HTTP (HTML, imagens, JavaScript, CSS, etc.), reduzindo a quantidade de tráfego entre o cliente e o servidor.
