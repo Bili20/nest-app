@@ -8,3 +8,7 @@
 - **PostgreSQL**
 - **Docker**
 - **TypeORM**
+
+  - [TypeORM](https://typeorm.io/)
+  - [NestJS](https://nestjs.com/)
+  
