@@ -1,2 +1,10 @@
-Um estudo sobre sessão.
-Utilizando nestjs com typeorm e banco postgres.
+# Um estudo sobre sessão.
+
+## Ferramentas
+
+- **NestJS**
+- **TypeScript**
+- **Express**
+- **PostgreSQL**
+- **Docker**
+- **TypeORM**
